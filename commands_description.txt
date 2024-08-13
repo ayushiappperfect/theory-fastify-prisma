@@ -1,0 +1,49 @@
+Fastify- Web Server
+Prisma-Database ORM
+Zod- Request and Responnse validation
+Swagger- API Docs
+TypeScript- Types and other cool stuffs
+
+
+code flow in models-
+
+ route->controller->service->schema
+
+
+Commands->
+
+
+  npm i
+  npm run dev
+  npx prisma generate
+  npx prisma migrate dev
+  
+  npm init
+  npx typescript --init
+  
+      //if above statement give error
+      {pm cache-clean --force 
+      npm install -g typescript
+      tsc --init}
+  
+             // if any error in tsc --init so then do->
+            Search for "PowerShell" in the Start menu.
+            Right-click on "Windows PowerShell" and select "Run as administrator."
+            Get-ExecutionPolicy -List (on Windows Power Shell)
+            Set-ExecutionPolicy RemoteSigned -Scope CurrentUser  (on windowsPowerShell)
+            now run it again tsc --init
+            now it will create tsconfig.json
+  
+  
+  
+  
+  The command npm add @prisma/client fastify fastify-zod zod zod-to-json-schema fastify-jwt fastify-swagger does the same thing as the Yarn command but uses npm instead of Yarn. Here's a brief overview:
+  
+            @prisma/client: Installs Prisma Client, a database ORM tool.
+            fastify: Installs Fastify, a web framework for building fast and efficient web servers.
+            fastify-zod: Integrates Zod with Fastify for schema validation.
+            zod: Installs Zod, a schema validation library.
+            zod-to-json-schema: Converts Zod schemas into JSON Schema format.
+            fastify-jwt: Adds JWT (JSON Web Token) support to Fastify for authentication.
+            fastify-swagger: Installs Fastify Swagger plugin for auto-generating API documentation.
+            This command installs all these packages and saves them as dependencies in your package.json file.
