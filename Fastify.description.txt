@@ -1,0 +1,58 @@
+Fastify=> node based web application framework/HTTP(s) server
+       => Power RESTful APIs 
+       => Template rendering
+       => Server static files
+       =>Database access
+
+Why > =>Performance
+To install Fastify in your project using npm, you can run the following command in your terminal:
+  npm i fastify --save
+
+what &how?=>
+    Fastify ka ek instance le kr usko server banaya index.js mei 
+    aur isme register kiye controller jo humne banaya hai
+    phir uske baad listen krvaya
+      =>created instance=>regidter the controller on fastify server=> listen server on port 
+    
+    in controller we have made the functions and responseSchema
+   and exported the controller at last
+   
+   Hooks are code that executes in at a certain life cycle event 
+
+
+Fastify application lifecycle =>
+   Incoming request 
+     Routing
+        Instance Logger
+           onRequestHook
+              preParsingHook
+                  Parsing
+                     preValidation Hook
+                        Validation
+                           preHandler Hook
+                              User Handler
+                                  Reply
+                                     preSerialization Hook 
+                                        onSend Hook 
+                                           Outgoing response
+                                              onResponse Hook 
+
+
+
+Decorators are used to attach properties whatever they are to native artifier request object or other object
+and they are necessary because if you don't use a decorator then request object is serialised
+ decorators are a powerful feature that allows you to add custom functionality or properties to various core objects like
+  request, reply, and even the Fastify instance itself.
+  Key Points:
+      Extend Core Objects: Decorators let you add methods, 
+      properties, or data to the Fastify instance, request,
+       or reply objects.
+      Reusable: Once a decorator is added, it can be 
+      accessed anywhere in your Fastify application.
+      Encapsulation: They help encapsulate and organize 
+      functionality in a modular way.
+
+      For ex-
+      fastify.decorate('utility', function () {
+  return 'This is a utility function';
+});  //here utility is a custom function added to the Fastify instance using decorate
