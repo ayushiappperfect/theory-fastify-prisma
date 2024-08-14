@@ -12,7 +12,7 @@ code flow in models-
 
 Commands->
 
-
+  npm init -y => to create package.json
   npm i
   npm run dev
   npx prisma generate
@@ -47,3 +47,54 @@ Commands->
             fastify-jwt: Adds JWT (JSON Web Token) support to Fastify for authentication.
             fastify-swagger: Installs Fastify Swagger plugin for auto-generating API documentation.
             This command installs all these packages and saves them as dependencies in your package.json file.
+
+
+  The command npm add ts-node-dev typescript @types/node --dev installs the following packages as development dependencies:
+
+    ts-node-dev: A development tool that combines ts-node (which runs TypeScript directly) with automatic restarting when files change, similar to nodemon.
+    typescript: The TypeScript compiler, which is required to compile TypeScript code into JavaScript.
+    @types/node: TypeScript type definitions for Node.js, providing type information for the Node.js standard library, making it easier to write TypeScript code that interacts with Node.js.
+    The --dev flag indicates that these packages should be installed as development dependencies, which means they are needed during development but not required in production.
+
+  After adding above two dependencies make change in package.json ->
+      "scripts": {
+              "dev":"tsnd --respawn --transpile-only --exit-child src/app.ts"
+      },
+
+  For running npm -> npm run dev
+
+  The command npx prisma init --datasource-provider postgresql
+      sets up a new Prisma project configured to use PostgreSQL 
+      as the database provider. It creates the necessary 
+      configuration files and directories for Prisma to 
+      interact with a PostgreSQL database, including a 
+      schema.prisma file and a .env file with a placeholder
+      for your PostgreSQL connection string.
+
+  npx prisma migrate dev --name init
+      This command creates and applies a
+      migration to your database, setting up the initial schema
+        as defined in your prisma/schema.prisma file. 
+      It also updates your migration history.
+
+  salt is random piece of data that we're going to add to user's password and hash along with it to give unique values.
+
+  Flow of api/users/
+      in user.route.ts-> server :FastifyInstance => server.post('/,registerUserHandle)
+      in user.controller.ts=> registerUserHandle =>createUser(body)
+      in user.service.ts=> isme prisma.user.create({data:{...rest,salt,password:hash},});return user
+      in user.schema=> we have body type or format of request and response
+
+
+To install Fastify in your project using npm, you can run the following command in your terminal:
+  npm i fastify --save
+
+
+
+For installing nodeom (watcher for development)
+   npm install --save-dev nodemon
+  after installing above do this in package.json=>
+  "scripts": {
+    "start": "node src/index",
+    "dev":"nodemon src/index"
+  },
